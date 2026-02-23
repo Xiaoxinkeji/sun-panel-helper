@@ -5,12 +5,12 @@
 <div align="center">
   <img src="https://pic2.ziyuan.wang/user/madrays/2025/02/logo _1__216e59a7de7ac.png" width="300" height="275" alt="Sun-Panel-Helper Logo" />
 
-  [![Github](https://img.shields.io/badge/Github-123456?logo=github&labelColor=242424)](https://github.com/madrays/sun-panel-helper)
-  [![Gitee](https://img.shields.io/badge/Gitee-123456?logo=gitee&labelColor=c71d23)](https://gitee.com/madrays/sun-panel-helper)
-  [![docker](https://img.shields.io/badge/docker-123456?logo=docker&logoColor=fff&labelColor=1c7aed)](https://hub.docker.com/r/madrays/sun-panel-helper)
+  [![Github](https://img.shields.io/badge/Github-123456?logo=github&labelColor=242424)](https://github.com/Xiaoxinkeji/sun-panel-helper)
+  [![Gitee](https://img.shields.io/badge/Gitee-123456?logo=gitee&labelColor=c71d23)](https://gitee.com/xiaoxinkeji/sun-panel-helper)
+  [![docker](https://img.shields.io/badge/docker-123456?logo=docker&logoColor=fff&labelColor=1c7aed)](https://hub.docker.com/r/xiaoxinkeji/sun-panel-helper)
 
-  [![GitHub stars](https://img.shields.io/github/stars/madrays/sun-panel-helper?style=flat&logo=github)](https://github.com/madrays/sun-panel-helper)
-  [![Docker pulls](https://img.shields.io/docker/pulls/madrays/sun-panel-helper.svg?logo=docker)](https://hub.docker.com/r/madrays/sun-panel-helper)
+  [![GitHub stars](https://img.shields.io/github/stars/Xiaoxinkeji/sun-panel-helper?style=flat&logo=github)](https://github.com/Xiaoxinkeji/sun-panel-helper)
+  [![Docker pulls](https://img.shields.io/docker/pulls/xiaoxinkeji/sun-panel-helper.svg?logo=docker)](https://hub.docker.com/r/xiaoxinkeji/sun-panel-helper)
 
   [Sun-Panel 项目](https://github.com/hslr-s/sun-panel)
 
@@ -138,7 +138,7 @@ docker run -d \
   -v /path/to/sunpanel/conf/custom:/app/backend/custom \
   -v /your/path/to/helper/data:/app/backend/data \
   -v /your/path/to/helper/backups:/app/backend/backups \
-  madrays/sun-panel-helper:latest
+  xiaoxinkeji/sun-panel-helper:latest
 ```
 
 > ⚠️ **重要提示**：务必在更新前备份您的数据，确保安全迁移！对于v2.0.5之前的版本，只需导出data目录即可，因为旧版本没有备份功能。
@@ -324,7 +324,7 @@ docker run -d \
   -v /path/to/sunpanel/conf/custom:/app/backend/custom \
   -v /path/to/helper/data:/app/backend/data \
   -v /path/to/helper/backups:/app/backend/backups \
-  madrays/sun-panel-helper:latest
+  xiaoxinkeji/sun-panel-helper:latest
 
 # Host网络模式 (解决IPv6问题)
 docker run -d \
@@ -335,7 +335,7 @@ docker run -d \
   -v /path/to/sunpanel/conf/custom:/app/backend/custom \
   -v /path/to/helper/data:/app/backend/data \
   -v /path/to/helper/backups:/app/backend/backups \
-  madrays/sun-panel-helper:latest
+  xiaoxinkeji/sun-panel-helper:latest
 ```
 
 #### Docker Compose部署
@@ -346,7 +346,7 @@ docker run -d \
 version: '3'
 services:
   sun-panel-helper:
-    image: madrays/sun-panel-helper:latest
+    image: xiaoxinkeji/sun-panel-helper:latest
     container_name: sun-panel-helper
     environment:
       - BACKEND_PORT=3001  # 后端服务端口,可自定义修改避免冲突
@@ -364,7 +364,7 @@ services:
 version: '3'
 services:
   sun-panel-helper:
-    image: madrays/sun-panel-helper:latest
+    image: xiaoxinkeji/sun-panel-helper:latest
     container_name: sun-panel-helper
     network_mode: host    # 使用Host网络模式
     environment:
@@ -425,7 +425,7 @@ docker-compose up -d
 2. 进入"Containers" > "Add Container"
 3. 填写以下信息:
    - Name: sun-panel-helper
-   - Image: madrays/sun-panel-helper:latest
+   - Image: xiaoxinkeji/sun-panel-helper:latest
    - Port mapping: 33002:80
    - Environment variables: 
      - BACKEND_PORT=3001
@@ -443,7 +443,7 @@ docker-compose up -d
 2. 进入"Containers" > "Add Container"
 3. 填写以下信息:
    - Name: sun-panel-helper
-   - Image: madrays/sun-panel-helper:latest
+   - Image: xiaoxinkeji/sun-panel-helper:latest
    - Network: Host
    - 不需要设置端口映射
    - Environment variables: 
@@ -462,7 +462,7 @@ docker-compose up -d
 
 ##### 标准模式
 1. 打开Docker套件
-2. 下载镜像madrays/sun-panel-helper:latest
+2. 下载镜像xiaoxinkeji/sun-panel-helper:latest
 3. 创建容器时配置:
    - 端口设置: 33002:80
    - 环境变量: BACKEND_PORT=3001
@@ -473,7 +473,7 @@ docker-compose up -d
 
 ##### Host网络模式 (解决IPv6问题)
 1. 打开Docker套件
-2. 下载镜像madrays/sun-panel-helper:latest
+2. 下载镜像xiaoxinkeji/sun-panel-helper:latest
 3. 创建容器时配置:
    - 高级设置 > 网络 > 使用与Docker Host相同的网络
    - 环境变量: 
@@ -504,7 +504,7 @@ services:
 
   # Sun-Panel-Helper 服务
   sun-panel-helper:
-    image: madrays/sun-panel-helper:latest
+    image: xiaoxinkeji/sun-panel-helper:latest
     container_name: sun-panel-helper
     environment:
       - BACKEND_PORT=3001  # 后端服务端口,可自定义修改避免冲突
@@ -535,7 +535,7 @@ services:
 
   # Sun-Panel-Helper 服务 (Host网络模式)
   sun-panel-helper:
-    image: madrays/sun-panel-helper:latest
+    image: xiaoxinkeji/sun-panel-helper:latest
     container_name: sun-panel-helper
     network_mode: host
     environment:
@@ -733,4 +733,4 @@ Sun Panel Helper 是一个专注于增强 Sun-Panel 功能的辅助工具。我�
 
 ## 📈 项目统计
 
-[![Star History Chart](https://api.star-history.com/svg?repos=madrays/sun-panel-helper&type=Date)](https://star-history.com/#madrays/sun-panel-helper&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Xiaoxinkeji/sun-panel-helper&type=Date)](https://star-history.com/#Xiaoxinkeji/sun-panel-helper&Date)

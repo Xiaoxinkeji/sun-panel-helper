@@ -17,7 +17,7 @@
 
         <!-- 项目链接 -->
         <div class="links-section">
-          <a href="https://github.com/madrays/sun-panel-helper" target="_blank" class="link-card github">
+          <a href="https://github.com/Xiaoxinkeji/sun-panel-helper" target="_blank" class="link-card github">
             <el-icon><Platform /></el-icon>
             <span>GitHub</span>
           </a>

@@ -131,7 +131,7 @@
                 <span>Docker命令更新</span>
               </div>
               <div class="step-content">
-                <pre class="code-block">docker pull madrays/sun-panel-helper:latest
+                <pre class="code-block">docker pull xiaoxinkeji/sun-panel-helper:latest
 docker stop sun-panel-helper
 docker rm sun-panel-helper
 docker run -d \
@@ -139,7 +139,7 @@ docker run -d \
   -p 33002:80 \
   -e BACKEND_PORT=3001 \
   -v /path/to/sunpanel/conf/custom:/app/backend/custom \
-  madrays/sun-panel-helper:latest</pre>
+  xiaoxinkeji/sun-panel-helper:latest</pre>
               </div>
             </div>
             <div class="step">
@@ -208,7 +208,7 @@ const checkLatestVersion = async () => {
     // 尝试从Gitee获取提交信息
     try {
       console.log('尝试从Gitee获取提交信息...')
-      const commitsRes = await fetch('https://gitee.com/api/v5/repos/madrays/sun-panel-helper/commits')
+      const commitsRes = await fetch('https://gitee.com/api/v5/repos/xiaoxinkeji/sun-panel-helper/commits')
       const commitsData = await commitsRes.json()
       console.log('Gitee提交信息:', commitsData)
       
@@ -247,7 +247,7 @@ const checkLatestVersion = async () => {
     // 如果Gitee API失败，尝试GitHub API
     try {
       console.log('尝试从GitHub获取版本信息...')
-      const githubRes = await fetch('https://api.github.com/repos/madrays/sun-panel-helper/releases/latest')
+      const githubRes = await fetch('https://api.github.com/repos/Xiaoxinkeji/sun-panel-helper/releases/latest')
       const githubData = await githubRes.json()
       console.log('GitHub版本信息:', githubData)
       
@@ -291,10 +291,10 @@ const openLink = (type: string) => {
   let url = ''
   switch (type) {
     case 'github':
-      url = 'https://github.com/madrays/sun-panel-helper'
+      url = 'https://github.com/Xiaoxinkeji/sun-panel-helper'
       break
     case 'gitee':
-      url = 'https://gitee.com/madrays/sun-panel-helper'
+      url = 'https://gitee.com/xiaoxinkeji/sun-panel-helper'
       break
     case 'bilibili':
       url = 'https://space.bilibili.com/1966866878'

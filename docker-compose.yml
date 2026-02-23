@@ -3,7 +3,7 @@ version: '3'
 services:
   sun-panel-helper:
     build: .
-    image: madrays/sun-panel-helper:latest
+    image: xiaoxinkeji/sun-panel-helper:latest
     container_name: sun-panel-helper
     environment:
       - BACKEND_PORT=3001  # 后端服务端口,可自定义修改避免冲突
