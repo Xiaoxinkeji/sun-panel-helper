@@ -100,6 +100,6 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
-EXPOSE 
+EXPOSE ${FRONTEND_PORT:-80}
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
