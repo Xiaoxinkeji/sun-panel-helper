@@ -11,6 +11,17 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: 'css/theme-pack',
+    name: 'CSSThemePack',
+    component: () => import('../../views/css/detail/theme-pack/index.vue'),
+    meta: {
+      title: '主题包',
+      hideInMenu: true,
+      parentTitle: 'CSS 美化库',
+      parentPath: '/dashboard/css'
+    }
+  },
+  {
     path: 'css/xiantiao',
     name: 'CSSXiantiao',
     component: () => import('../../views/css/detail/xiantiao/index.vue'),

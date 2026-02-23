@@ -1,0 +1,157 @@
+{
+    "id": "theme-pack",
+    "name": "主题包",
+    "type": "css",
+    "description": "一键切换Sun-Panel的整体视觉风格，内置多款精美主题",
+    "tags": [
+        "主题",
+        "美化",
+        "风格"
+    ],
+    "params": {
+        "themeName": {
+            "type": "string",
+            "name": "主题名称",
+            "description": "选择预设主题",
+            "default": "ios-light"
+        },
+        "cardBg": {
+            "type": "string",
+            "name": "卡片背景色",
+            "description": "卡片的背景颜色",
+            "default": "#ffffff"
+        },
+        "cardOpacity": {
+            "type": "number",
+            "name": "卡片透明度",
+            "description": "卡片背景透明度（0-1）",
+            "default": 0.85,
+            "min": 0,
+            "max": 1,
+            "step": 0.05
+        },
+        "cardRadius": {
+            "type": "number",
+            "name": "卡片圆角",
+            "description": "卡片的圆角大小（px）",
+            "default": 16,
+            "min": 0,
+            "max": 30,
+            "step": 1
+        },
+        "cardShadow": {
+            "type": "number",
+            "name": "阴影强度",
+            "description": "卡片阴影的强度（0-30）",
+            "default": 8,
+            "min": 0,
+            "max": 30,
+            "step": 1
+        },
+        "cardBorder": {
+            "type": "string",
+            "name": "卡片边框色",
+            "description": "卡片的边框颜色",
+            "default": "rgba(0,0,0,0.06)"
+        },
+        "cardBorderWidth": {
+            "type": "number",
+            "name": "边框宽度",
+            "description": "卡片边框宽度（px）",
+            "default": 0.5,
+            "min": 0,
+            "max": 3,
+            "step": 0.5
+        },
+        "cardBlur": {
+            "type": "number",
+            "name": "毛玻璃强度",
+            "description": "卡片的毛玻璃模糊半径（px）",
+            "default": 12,
+            "min": 0,
+            "max": 30,
+            "step": 1
+        },
+        "textColor": {
+            "type": "string",
+            "name": "文字颜色",
+            "description": "卡片内文字颜色",
+            "default": "#1d1d1f"
+        },
+        "titleColor": {
+            "type": "string",
+            "name": "标题颜色",
+            "description": "卡片标题的颜色",
+            "default": "#1d1d1f"
+        },
+        "groupTitleColor": {
+            "type": "string",
+            "name": "分组标题颜色",
+            "description": "分组标题的颜色",
+            "default": "#86868b"
+        },
+        "searchBg": {
+            "type": "string",
+            "name": "搜索框背景",
+            "description": "搜索框的背景颜色",
+            "default": "rgba(255,255,255,0.72)"
+        },
+        "searchColor": {
+            "type": "string",
+            "name": "搜索框文字",
+            "description": "搜索框的文字颜色",
+            "default": "#1d1d1f"
+        },
+        "searchRadius": {
+            "type": "number",
+            "name": "搜索框圆角",
+            "description": "搜索框的圆角大小（px）",
+            "default": 12,
+            "min": 0,
+            "max": 30,
+            "step": 1
+        },
+        "searchBorder": {
+            "type": "string",
+            "name": "搜索框边框",
+            "description": "搜索框的边框颜色",
+            "default": "rgba(0,0,0,0.08)"
+        },
+        "floatBtnColor": {
+            "type": "string",
+            "name": "悬浮按钮色",
+            "description": "悬浮按钮的颜色",
+            "default": "rgba(0,0,0,0.35)"
+        },
+        "clockColor": {
+            "type": "string",
+            "name": "时钟颜色",
+            "description": "时钟文字颜色",
+            "default": "#1d1d1f"
+        },
+        "logoColor": {
+            "type": "string",
+            "name": "Logo颜色",
+            "description": "Logo文字颜色",
+            "default": "#1d1d1f"
+        },
+        "enableDarkMode": {
+            "type": "boolean",
+            "name": "暗色模式适配",
+            "description": "是否启用暗色模式下的样式覆盖",
+            "default": true
+        },
+        "darkCardBg": {
+            "type": "string",
+            "name": "暗色卡片背景",
+            "description": "暗色模式下卡片的背景颜色",
+            "default": "#1c1c1e"
+        },
+        "darkTextColor": {
+            "type": "string",
+            "name": "暗色文字颜色",
+            "description": "暗色模式下的文字颜色",
+            "default": "#f5f5f7"
+        }
+    }
+}

@@ -11,6 +11,7 @@ import globalFontRoutes from './routes/css/global-font'
 import customLogoRoutes from './routes/css/custom-logo'
 import layoutAdjustRoutes from './routes/css/layout-adjust'
 import clockStyleRoutes from './routes/css/clock-style'
+import themePackRoutes from './routes/css/theme-pack'
 import maxkbAiRoutes from './routes/js/maxkb-ai'
 import searchQuoteRoutes from './routes/js/search-quote'
 import fishAnimationRoutes from './routes/js/fish-animation'
@@ -131,6 +132,7 @@ app.use('/api/css/global-font', globalFontRoutes)
 app.use('/api/css/custom-logo', customLogoRoutes)
 app.use('/api/css/layout-adjust', layoutAdjustRoutes)
 app.use('/api/css/clock-style', clockStyleRoutes)
+app.use('/api/css/theme-pack', themePackRoutes)
 app.use('/api/js/maxkb-ai', maxkbAiRoutes)
 app.use('/api/js/search-quote', searchQuoteRoutes)
 app.use('/api/js/fish-animation', fishAnimationRoutes)

@@ -6,6 +6,21 @@
     </div>
 
     <div class="card-grid" ref="cardGrid">
+      <!-- 主题包卡片 -->
+      <div 
+        class="card-wrapper"
+        draggable="true"
+        @dragstart="handleDragStart($event, 'theme-pack')"
+        @dragend="handleDragEnd"
+        @dragover.prevent
+        @drop="handleDrop($event, 'theme-pack')"
+      >
+        <ThemePackCard 
+          :is-deployed="deployedComponents.includes('theme-pack')"
+          @click="handleCardClick('theme-pack')"
+        />
+      </div>
+
       <!-- 装饰线条卡片 -->
       <div 
         class="card-wrapper"
@@ -130,6 +145,7 @@
 </template>
 
 <script>
+import ThemePackCard from './preview/ThemePackCard.vue'
 import XiantiaoCard from './preview/XiantiaoCard.vue'
 import CardHoverCard from './preview/CardHoverCard.vue'
 import GradientBgCard from './preview/GradientBgCard.vue'
@@ -142,6 +158,7 @@ import ClockStyleCard from './preview/ClockStyleCard.vue'
 export default {
   name: 'CSSLibrary',
   components: {
+    ThemePackCard,
     XiantiaoCard,
     CardHoverCard,
     GradientBgCard,
@@ -154,9 +171,10 @@ export default {
   data() {
     return {
       deployedComponents: [], // 已部署的组件列表
-      cardOrder: ['xiantiao', 'card-hover', 'gradient-bg', 'mouse-cursor', 'layout-adjust', 'custom-logo', 'global-font', 'clock-style'], // 卡片顺序
+      cardOrder: ['theme-pack', 'xiantiao', 'card-hover', 'gradient-bg', 'mouse-cursor', 'layout-adjust', 'custom-logo', 'global-font', 'clock-style'], // 卡片顺序
       draggedCard: null, // 当前拖拽的卡片
       deployedList: {
+        'theme-pack': false,
         xiantiao: false,
         'card-hover': false,
         'gradient-bg': false,
@@ -200,6 +218,10 @@ export default {
     // 检查组件部署状态
     async checkDeployment() {
       try {
+        // 检查 theme-pack 部署状态
+        const themePackRes = await fetch('/api/css/theme-pack/deployed')
+        const themePackData = await themePackRes.json()
+
         // 检查 xiantiao 部署状态
         const xiantiaoRes = await fetch('/api/css/xiantiao/deployed')
         const xiantiaoData = await xiantiaoRes.json()
@@ -234,6 +256,7 @@ export default {
         
         // 更新部署状态列表
         this.deployedComponents = [
+          ...(themePackData.deployed ? ['theme-pack'] : []),
           ...(xiantiaoData.deployed ? ['xiantiao'] : []),
           ...(cardHoverData.deployed ? ['card-hover'] : []),
           ...(gradientBgData.deployed ? ['gradient-bg'] : []),

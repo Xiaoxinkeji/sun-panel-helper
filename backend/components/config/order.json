@@ -15,6 +15,7 @@
     "star-background"
   ],
   "css": [
+    "theme-pack",
     "clock-style",
     "global-font",
     "fixed-widgets",
@@ -25,4 +26,4 @@
     "gradient-bg",
     "layout-adjust"
   ]
-} 
+}
