@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs'
-import { join } from 'path'
 import { deploy, undeploy, isDeployed } from './deploy'
 import { presetThemes, getPresetTheme } from './presets'
 import type { ThemePackParams, ThemePreset } from './types'
