@@ -6,43 +6,43 @@ import type { ThemePackParams, ThemePreset } from './types'
  * 将十六进制颜色转换为RGBA
  */
 function hexToRGBA(hex: string, alpha: number): string {
-    // 如果已经是rgba或rgb格式，直接调整透明度
-    if (hex.startsWith('rgba(') || hex.startsWith('rgb(')) {
-        const match = hex.match(/[\d.]+/g)
-        if (match && match.length >= 3) {
-            return `rgba(${match[0]},${match[1]},${match[2]},${alpha})`
-        }
-    }
+  // 如果已经是rgba或rgb格式，直接调整透明度
+  if (hex.startsWith('rgba(') || hex.startsWith('rgb(')) {
+      const match = hex.match(/[\d.]+/g)
+      if (match && match.length >= 3) {
+      return `rgba(${match[0]},${match[1]},${match[2]},${alpha})`
+      }
+  }
 
-    // 移除#符号
-    hex = hex.replace('#', '')
+  // 移除#符号
+  hex = hex.replace('#', '')
 
-    // 支持3位缩写
-    if (hex.length === 3) {
-        hex = hex.split('').map(c => c + c).join('')
-    }
+  // 支持3位缩写
+  if (hex.length === 3) {
+      hex = hex.split('').map(c => c + c).join('')
+  }
 
-    const r = parseInt(hex.substring(0, 2), 16)
-    const g = parseInt(hex.substring(2, 4), 16)
-    const b = parseInt(hex.substring(4, 6), 16)
+  const r = parseInt(hex.substring(0, 2), 16)
+  const g = parseInt(hex.substring(2, 4), 16)
+  const b = parseInt(hex.substring(4, 6), 16)
 
-    return `rgba(${r},${g},${b},${alpha})`
+  return `rgba(${r},${g},${b},${alpha})`
 }
 
 /**
  * 直接生成CSS内容（不使用模板文件，避免formatter破坏占位符）
  */
 function generateCSS(params: ThemePackParams): string {
-    // 计算衍生值
-    const cardBgRGBA = hexToRGBA(params.cardBg, params.cardOpacity)
-    const cardShadowY = Math.round(params.cardShadow * 0.4)
-    const cardShadowBlur = params.cardShadow
-    const cardShadowAlpha = (params.cardShadow / 100).toFixed(2)
-    const cardShadowHoverY = Math.round(params.cardShadow * 0.8)
-    const cardShadowHoverBlur = Math.round(params.cardShadow * 1.5)
-    const cardShadowHoverAlpha = (params.cardShadow / 60).toFixed(2)
+  // 计算衍生值
+  const cardBgRGBA = hexToRGBA(params.cardBg, params.cardOpacity)
+  const cardShadowY = Math.round(params.cardShadow * 0.4)
+  const cardShadowBlur = params.cardShadow
+  const cardShadowAlpha = (params.cardShadow / 100).toFixed(2)
+  const cardShadowHoverY = Math.round(params.cardShadow * 0.8)
+  const cardShadowHoverBlur = Math.round(params.cardShadow * 1.5)
+  const cardShadowHoverAlpha = (params.cardShadow / 60).toFixed(2)
 
-    let css = `/* ===== Sun-Panel 主题包 ===== */
+  let css = `/* ===== Sun-Panel 主题包 ===== */
 /* 由 Sun-Panel-Helper 主题引擎生成 */
 
 /* --- 卡片样式 (详情图标模式) --- */
@@ -154,10 +154,10 @@ function generateCSS(params: ThemePackParams): string {
   background: rgba(0,0,0,0.25);
 }`
 
-    // 如果启用暗色模式适配，追加暗色样式
-    if (params.enableDarkMode) {
-        const darkCardBgRGBA = hexToRGBA(params.darkCardBg, params.cardOpacity)
-        css += `
+  // 如果启用暗色模式适配，追加暗色样式
+  if (params.enableDarkMode) {
+      const darkCardBgRGBA = hexToRGBA(params.darkCardBg, params.cardOpacity)
+      css += `
 
 /* --- 暗色模式适配 --- */
 html.dark .icon-info-box .rounded-2xl,
@@ -196,9 +196,9 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.25);
 }`
-    }
+  }
 
-    return css
+  return css
 }
 
 /**
@@ -206,56 +206,56 @@ html.dark ::-webkit-scrollbar-thumb:hover {
  * @param params 组件参数
  */
 export async function deployThemePack(params: ThemePackParams): Promise<{ success: boolean; message?: string; error?: string }> {
-    try {
-        // 1. 生成CSS
-        const css = generateCSS(params)
+  try {
+      // 1. 生成CSS
+      const css = generateCSS(params)
 
-        // 2. 部署CSS
-        await deploy(css)
+      // 2. 部署CSS
+      await deploy(css)
 
-        return { success: true, message: '主题包部署成功' }
-    } catch (error) {
-        console.error('部署主题包组件失败:', error)
-        return {
-            success: false,
-            error: error instanceof Error ? error.message : '主题包部署失败'
-        }
-    }
+      return { success: true, message: '主题包部署成功' }
+  } catch (error) {
+      console.error('部署主题包组件失败:', error)
+      return {
+      success: false,
+      error: error instanceof Error ? error.message : '主题包部署失败'
+      }
+  }
 }
 
 /**
  * 取消部署主题包组件
  */
 export async function undeployThemePack(): Promise<{ success: boolean; message?: string; error?: string }> {
-    try {
-        await undeploy()
-        return { success: true, message: '主题包取消部署成功' }
-    } catch (error) {
-        console.error('取消部署主题包组件失败:', error)
-        return {
-            success: false,
-            error: error instanceof Error ? error.message : '主题包取消部署失败'
-        }
-    }
+  try {
+      await undeploy()
+      return { success: true, message: '主题包取消部署成功' }
+  } catch (error) {
+      console.error('取消部署主题包组件失败:', error)
+      return {
+      success: false,
+      error: error instanceof Error ? error.message : '主题包取消部署失败'
+      }
+  }
 }
 
 /**
  * 检查组件是否已部署
  */
 export async function checkDeployed(): Promise<boolean> {
-    return await isDeployed()
+  return await isDeployed()
 }
 
 /**
  * 获取所有预设主题列表
  */
 export function getPresetThemes(): ThemePreset[] {
-    return presetThemes
+  return presetThemes
 }
 
 /**
  * 根据ID获取预设主题参数
  */
 export function getThemeById(id: string): ThemePreset | undefined {
-    return getPresetTheme(id)
+  return getPresetTheme(id)
 }
